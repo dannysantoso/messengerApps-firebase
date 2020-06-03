@@ -3,27 +3,47 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C759C4389E99595419AA5E97 /* Pods_dannymessenger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1E1B54767FE2B8C4BBF9C3B /* Pods_dannymessenger.framework */; };
+		E165B63424866F730097546B /* MessageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E165B63224866F730097546B /* MessageVC.swift */; };
+		E165B63524866F730097546B /* MessageVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = E165B63324866F730097546B /* MessageVC.xib */; };
+		E165B639248675060097546B /* SignupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E165B637248675060097546B /* SignupVC.swift */; };
+		E165B63A248675060097546B /* SignupVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = E165B638248675060097546B /* SignupVC.xib */; };
+		E165B6442487CAC20097546B /* MessageDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = E165B6432487CAC20097546B /* MessageDetail.swift */; };
+		E165B6472487CDD60097546B /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E165B6452487CDD60097546B /* MessageTableViewCell.swift */; };
+		E165B6482487CDD60097546B /* MessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E165B6462487CDD60097546B /* MessageTableViewCell.xib */; };
 		E1C89D8724851B1600E6158F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C89D8624851B1600E6158F /* AppDelegate.swift */; };
 		E1C89D8924851B1600E6158F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C89D8824851B1600E6158F /* SceneDelegate.swift */; };
-		E1C89D8B24851B1600E6158F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C89D8A24851B1600E6158F /* ViewController.swift */; };
+		E1C89D8B24851B1600E6158F /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C89D8A24851B1600E6158F /* LoginVC.swift */; };
 		E1C89D8E24851B1600E6158F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1C89D8C24851B1600E6158F /* Main.storyboard */; };
 		E1C89D9024851B1700E6158F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1C89D8F24851B1700E6158F /* Assets.xcassets */; };
 		E1C89D9324851B1700E6158F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1C89D9124851B1700E6158F /* LaunchScreen.storyboard */; };
+		E1C89D9B2485658700E6158F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E1C89D9A2485658700E6158F /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8C5B5962BF2EE0424A2FE2F4 /* Pods-dannymessenger.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dannymessenger.release.xcconfig"; path = "Target Support Files/Pods-dannymessenger/Pods-dannymessenger.release.xcconfig"; sourceTree = "<group>"; };
+		C1E1B54767FE2B8C4BBF9C3B /* Pods_dannymessenger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_dannymessenger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7A14966E2A5FB00DEAEF3A4 /* Pods-dannymessenger.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dannymessenger.debug.xcconfig"; path = "Target Support Files/Pods-dannymessenger/Pods-dannymessenger.debug.xcconfig"; sourceTree = "<group>"; };
+		E165B63224866F730097546B /* MessageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageVC.swift; sourceTree = "<group>"; };
+		E165B63324866F730097546B /* MessageVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageVC.xib; sourceTree = "<group>"; };
+		E165B637248675060097546B /* SignupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupVC.swift; sourceTree = "<group>"; };
+		E165B638248675060097546B /* SignupVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignupVC.xib; sourceTree = "<group>"; };
+		E165B6432487CAC20097546B /* MessageDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageDetail.swift; sourceTree = "<group>"; };
+		E165B6452487CDD60097546B /* MessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
+		E165B6462487CDD60097546B /* MessageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageTableViewCell.xib; sourceTree = "<group>"; };
 		E1C89D8324851B1600E6158F /* dannymessenger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dannymessenger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1C89D8624851B1600E6158F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E1C89D8824851B1600E6158F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E1C89D8A24851B1600E6158F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E1C89D8A24851B1600E6158F /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		E1C89D8D24851B1600E6158F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E1C89D8F24851B1700E6158F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E1C89D9224851B1700E6158F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E1C89D9424851B1700E6158F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E1C89D9A2485658700E6158F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +51,83 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C759C4389E99595419AA5E97 /* Pods_dannymessenger.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3F855F6132C94A0FA0332F50 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C1E1B54767FE2B8C4BBF9C3B /* Pods_dannymessenger.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B000EFDF641332526ED92590 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C7A14966E2A5FB00DEAEF3A4 /* Pods-dannymessenger.debug.xcconfig */,
+				8C5B5962BF2EE0424A2FE2F4 /* Pods-dannymessenger.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		E165B630248583420097546B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E165B6432487CAC20097546B /* MessageDetail.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E165B631248583480097546B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E165B64A2487DD480097546B /* cell */,
+				E1C89D8A24851B1600E6158F /* LoginVC.swift */,
+				E165B63224866F730097546B /* MessageVC.swift */,
+				E165B637248675060097546B /* SignupVC.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		E165B636248674B50097546B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E165B6492487DD3D0097546B /* cell */,
+				E165B63324866F730097546B /* MessageVC.xib */,
+				E165B638248675060097546B /* SignupVC.xib */,
+				E1C89D8C24851B1600E6158F /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E165B6492487DD3D0097546B /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				E165B6462487CDD60097546B /* MessageTableViewCell.xib */,
+			);
+			path = cell;
+			sourceTree = "<group>";
+		};
+		E165B64A2487DD480097546B /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				E165B6452487CDD60097546B /* MessageTableViewCell.swift */,
+			);
+			path = cell;
+			sourceTree = "<group>";
+		};
 		E1C89D7A24851B1600E6158F = {
 			isa = PBXGroup;
 			children = (
 				E1C89D8524851B1600E6158F /* dannymessenger */,
 				E1C89D8424851B1600E6158F /* Products */,
+				B000EFDF641332526ED92590 /* Pods */,
+				3F855F6132C94A0FA0332F50 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,13 +142,15 @@
 		E1C89D8524851B1600E6158F /* dannymessenger */ = {
 			isa = PBXGroup;
 			children = (
+				E165B636248674B50097546B /* View */,
+				E165B631248583480097546B /* Controller */,
+				E165B630248583420097546B /* Model */,
 				E1C89D8624851B1600E6158F /* AppDelegate.swift */,
 				E1C89D8824851B1600E6158F /* SceneDelegate.swift */,
-				E1C89D8A24851B1600E6158F /* ViewController.swift */,
-				E1C89D8C24851B1600E6158F /* Main.storyboard */,
 				E1C89D8F24851B1700E6158F /* Assets.xcassets */,
 				E1C89D9124851B1700E6158F /* LaunchScreen.storyboard */,
 				E1C89D9424851B1700E6158F /* Info.plist */,
+				E1C89D9A2485658700E6158F /* GoogleService-Info.plist */,
 			);
 			path = dannymessenger;
 			sourceTree = "<group>";
@@ -74,9 +162,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E1C89D9724851B1700E6158F /* Build configuration list for PBXNativeTarget "dannymessenger" */;
 			buildPhases = (
+				E877B34E63F544FBE008BF9D /* [CP] Check Pods Manifest.lock */,
 				E1C89D7F24851B1600E6158F /* Sources */,
 				E1C89D8024851B1600E6158F /* Frameworks */,
 				E1C89D8124851B1600E6158F /* Resources */,
+				4F55D064B9572005EA596085 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -126,20 +216,70 @@
 			buildActionMask = 2147483647;
 			files = (
 				E1C89D9324851B1700E6158F /* LaunchScreen.storyboard in Resources */,
+				E1C89D9B2485658700E6158F /* GoogleService-Info.plist in Resources */,
 				E1C89D9024851B1700E6158F /* Assets.xcassets in Resources */,
+				E165B63524866F730097546B /* MessageVC.xib in Resources */,
+				E165B63A248675060097546B /* SignupVC.xib in Resources */,
+				E165B6482487CDD60097546B /* MessageTableViewCell.xib in Resources */,
 				E1C89D8E24851B1600E6158F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4F55D064B9572005EA596085 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-dannymessenger/Pods-dannymessenger-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-dannymessenger/Pods-dannymessenger-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-dannymessenger/Pods-dannymessenger-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E877B34E63F544FBE008BF9D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-dannymessenger-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		E1C89D7F24851B1600E6158F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E1C89D8B24851B1600E6158F /* ViewController.swift in Sources */,
+				E165B6472487CDD60097546B /* MessageTableViewCell.swift in Sources */,
+				E165B63424866F730097546B /* MessageVC.swift in Sources */,
+				E165B639248675060097546B /* SignupVC.swift in Sources */,
+				E1C89D8B24851B1600E6158F /* LoginVC.swift in Sources */,
 				E1C89D8724851B1600E6158F /* AppDelegate.swift in Sources */,
+				E165B6442487CAC20097546B /* MessageDetail.swift in Sources */,
 				E1C89D8924851B1600E6158F /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -282,6 +422,7 @@
 		};
 		E1C89D9824851B1700E6158F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C7A14966E2A5FB00DEAEF3A4 /* Pods-dannymessenger.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -300,6 +441,7 @@
 		};
 		E1C89D9924851B1700E6158F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8C5B5962BF2EE0424A2FE2F4 /* Pods-dannymessenger.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
