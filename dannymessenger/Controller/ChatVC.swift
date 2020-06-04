@@ -11,7 +11,7 @@ import Firebase
 import FirebaseDatabase
 import SwiftKeychainWrapper
 
-class ChatVC: UIViewController {
+class ChatVC: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var sendButton: UIButton!
     @IBOutlet weak var tfMessage: UITextField!
@@ -47,6 +47,8 @@ class ChatVC: UIViewController {
             
             self.moveToBottom()
         }
+        
+        chatTableView.register(UINib(nibName: "ChatTableViewCell", bundle: nil), forCellReuseIdentifier: "chatCell")
     }
     
     @objc func keyboardWillShow(notify: NSNotification){
@@ -72,6 +74,13 @@ class ChatVC: UIViewController {
     @objc func dismissKeyboard(){
         view.endEditing(true)
     }
+    
+    @IBAction func back(_ sender: Any) {
+        
+        dismiss(animated: true, completion: nil)
+    
+    }
+    
     
     func moveToBottom(){
         if chats.count > 0 {
@@ -133,9 +142,6 @@ class ChatVC: UIViewController {
                 
                 firebaseMessage.setValue(post)
                 
-                let userMessage = Database.database().reference().child("users").child(currentUser!).child("messages").child(messageId)
-                
-                userMessage.setValue(message)
                 
                 
                 let recipentMessage = Database.database().reference().child("users").child(recipient).child("messages").child(messageId)
@@ -143,8 +149,56 @@ class ChatVC: UIViewController {
                 recipentMessage.setValue(recipientMessage)
                 
                 
+                
+                let userMessage = Database.database().reference().child("users").child(currentUser!).child("messages").child(messageId)
+                
+                userMessage.setValue(message)
+                
+                loadData()
+                
+            }else if messageId != "" {
+                
+                let post: Dictionary<String, AnyObject> = [
+                    "messages": tfMessage.text as AnyObject,
+                    "sender": recipient as AnyObject
+                ]
+                
+                let message: Dictionary<String, AnyObject> = [
+                    "lastmessage": tfMessage.text as AnyObject,
+                    "recipient": recipient as AnyObject
+                ]
+                
+                let recipientMessage: Dictionary<String, AnyObject> = [
+                    "lastmessage": tfMessage.text as AnyObject,
+                    "recipient": currentUser as AnyObject
+                ]
+                
+                
+                let firebaseMessage = Database.database().reference().child("messages").child(messageId).childByAutoId()
+                
+                firebaseMessage.setValue(post)
+                
+                
+                
+                let recipentMessage = Database.database().reference().child("users").child(recipient).child("messages").child(messageId)
+                
+                recipentMessage.setValue(recipientMessage)
+                
+                
+                
+                let userMessage = Database.database().reference().child("users").child(currentUser!).child("messages").child(messageId)
+                
+                userMessage.setValue(message)
+                
+                loadData()
+                
             }
+            
+            tfMessage.text = ""
+            
         }
+        
+        moveToBottom()
     }
     
     
@@ -177,7 +231,7 @@ extension ChatVC: UITableViewDataSource {
 extension ChatVC: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 300
+        return 64
     }
     
 }

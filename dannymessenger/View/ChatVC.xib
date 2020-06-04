@@ -35,6 +35,9 @@
                                     <rect key="frame" x="20" y="7" width="92" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <state key="normal" title="Back"/>
+                                    <connections>
+                                        <action selector="back:" destination="-1" eventType="touchUpInside" id="VHR-d5-sVX"/>
+                                    </connections>
                                 </button>
                             </barButtonItem>
                         </navigationItem>

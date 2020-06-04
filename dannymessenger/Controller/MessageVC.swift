@@ -48,7 +48,7 @@ class MessageVC: UIViewController {
             self.messageTableView.reloadData()
         })
 
-        // Do any additional setup after loading the view.
+        
         messageTableView.register(UINib(nibName: "MessageTableViewCell", bundle: nil), forCellReuseIdentifier: "MessageCell")
     }
 
@@ -61,7 +61,12 @@ class MessageVC: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
-
+    @IBAction func addMessage(_ sender: Any) {
+        let destination = ContactVC(nibName: "ContactVC", bundle: nil)
+        
+        self.present(destination, animated: true)
+    }
+    
 }
 
 
@@ -75,6 +80,12 @@ extension MessageVC: UITableViewDelegate {
         self.present(destination, animated: true)
         
     }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
+    }
+        
+    
     
 }
 

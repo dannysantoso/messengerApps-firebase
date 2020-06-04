@@ -41,7 +41,7 @@ class Chat{
         
         _messageKey = messageKey
         
-        if let chat = postData["message"] as? String {
+        if let chat = postData["messages"] as? String {
             
             _chat = chat
         }

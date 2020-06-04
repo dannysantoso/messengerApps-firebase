@@ -38,6 +38,9 @@
                                     <rect key="frame" x="266" y="0.0" width="128" height="44"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <state key="normal" image="plus" catalog="system"/>
+                                    <connections>
+                                        <action selector="addMessage:" destination="-1" eventType="touchUpInside" id="9Tc-iq-LlV"/>
+                                    </connections>
                                 </button>
                             </barButtonItem>
                         </navigationItem>
