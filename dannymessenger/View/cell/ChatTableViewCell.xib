@@ -17,16 +17,16 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v9L-zd-JhW">
-                        <rect key="frame" x="8" y="0.0" width="16" height="56"/>
+                        <rect key="frame" x="8" y="8" width="16" height="48"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ihS-d1-7K2">
-                                <rect key="frame" x="8" y="8" width="0.0" height="40"/>
+                                <rect key="frame" x="8" y="8" width="0.0" height="32"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" systemColor="systemGroupedBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" systemColor="systemGray2Color" red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="ihS-d1-7K2" firstAttribute="top" secondItem="v9L-zd-JhW" secondAttribute="top" constant="8" id="0L2-D8-guZ"/>
                             <constraint firstAttribute="bottom" secondItem="ihS-d1-7K2" secondAttribute="bottom" constant="8" id="0cg-5e-U81"/>
@@ -35,16 +35,16 @@
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N9o-QY-Ez8">
-                        <rect key="frame" x="295" y="0.0" width="16" height="56"/>
+                        <rect key="frame" x="295" y="8" width="16" height="48"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EkN-xg-foY">
-                                <rect key="frame" x="8" y="8" width="0.0" height="40"/>
+                                <rect key="frame" x="8" y="8" width="0.0" height="32"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" systemColor="systemGroupedBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="EkN-xg-foY" secondAttribute="bottom" constant="8" id="Nkz-Ig-ifr"/>
                             <constraint firstAttribute="trailing" secondItem="EkN-xg-foY" secondAttribute="trailing" constant="8" id="aFj-tn-jbz"/>
@@ -54,11 +54,11 @@
                     </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="v9L-zd-JhW" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="2Na-KQ-klv"/>
+                    <constraint firstItem="v9L-zd-JhW" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="2Na-KQ-klv"/>
                     <constraint firstAttribute="trailing" secondItem="N9o-QY-Ez8" secondAttribute="trailing" constant="8" id="9jT-se-lIb"/>
                     <constraint firstAttribute="bottom" secondItem="N9o-QY-Ez8" secondAttribute="bottom" constant="8" id="BPr-ej-z5p"/>
                     <constraint firstAttribute="bottom" secondItem="v9L-zd-JhW" secondAttribute="bottom" constant="8" id="IJs-5u-tMu"/>
-                    <constraint firstItem="N9o-QY-Ez8" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="YvD-S9-uVF"/>
+                    <constraint firstItem="N9o-QY-Ez8" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="YvD-S9-uVF"/>
                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="v9L-zd-JhW" secondAttribute="trailing" constant="150" id="gmj-BT-rFN"/>
                     <constraint firstItem="N9o-QY-Ez8" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="150" id="wQP-Yr-d6P"/>
                     <constraint firstItem="v9L-zd-JhW" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="yYl-Ou-Bj4"/>

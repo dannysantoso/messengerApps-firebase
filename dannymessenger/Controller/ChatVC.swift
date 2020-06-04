@@ -28,8 +28,9 @@ class ChatVC: UIViewController, UITextFieldDelegate {
 
         chatTableView.delegate = self
         chatTableView.dataSource = self
-//        chatTableView.rowHeight = UITableView.automaticDimension
-//        chatTableView.estimatedRowHeight = 300
+
+        
+        self.navigationController?.navigationBar.topItem?.title = recipient
         
         if messageId != "" && messageId != nil {
             loadData()

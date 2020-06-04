@@ -24,6 +24,12 @@ class ChatTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        receiveView.layer.cornerRadius = 5
+        receiveView.layer.masksToBounds = true
+        
+        sentView.layer.cornerRadius = 5
+        sentView.layer.masksToBounds = true
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -39,19 +45,19 @@ class ChatTableViewCell: UITableViewCell {
         
         if chat.sender == currentUser {
             
-            sentView.isHidden = false
-            sentMessage.text = chat.chat
-            
-            receiveView.isHidden = true
-            receiveMessage.text = ""
-            
-        } else {
-            
             sentView.isHidden = true
             sentMessage.text = ""
             
             receiveView.isHidden = false
             receiveMessage.text = chat.chat
+            
+        } else {
+            
+            sentView.isHidden = false
+            sentMessage.text = chat.chat
+            
+            receiveView.isHidden = true
+            receiveMessage.text = ""
             
         }
         

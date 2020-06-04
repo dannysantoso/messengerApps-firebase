@@ -99,8 +99,8 @@
 			isa = PBXGroup;
 			children = (
 				E165B6432487CAC20097546B /* MessageDetail.swift */,
-				E1B0CA982488361C00688822 /* Chat.swift */,
 				E1B0CAA22488BE1100688822 /* Contact.swift */,
+				E1B0CA982488361C00688822 /* Chat.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -108,12 +108,12 @@
 		E165B631248583480097546B /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				E165B64A2487DD480097546B /* cell */,
-				E165B64B2487E63E0097546B /* ChatVC.swift */,
 				E1C89D8A24851B1600E6158F /* LoginVC.swift */,
-				E165B63224866F730097546B /* MessageVC.swift */,
 				E165B637248675060097546B /* SignupVC.swift */,
+				E165B63224866F730097546B /* MessageVC.swift */,
 				E1B0CA9A2488BA7200688822 /* ContactVC.swift */,
+				E165B64B2487E63E0097546B /* ChatVC.swift */,
+				E165B64A2487DD480097546B /* cell */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -121,12 +121,13 @@
 		E165B636248674B50097546B /* View */ = {
 			isa = PBXGroup;
 			children = (
-				E165B6492487DD3D0097546B /* cell */,
-				E165B63324866F730097546B /* MessageVC.xib */,
-				E165B638248675060097546B /* SignupVC.xib */,
 				E1C89D8C24851B1600E6158F /* Main.storyboard */,
-				E165B64C2487E63E0097546B /* ChatVC.xib */,
+				E165B638248675060097546B /* SignupVC.xib */,
+				E165B63324866F730097546B /* MessageVC.xib */,
 				E1B0CA9B2488BA7200688822 /* ContactVC.xib */,
+				E165B64C2487E63E0097546B /* ChatVC.xib */,
+				E165B6492487DD3D0097546B /* cell */,
+				E1C89D9124851B1700E6158F /* LaunchScreen.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -135,8 +136,8 @@
 			isa = PBXGroup;
 			children = (
 				E165B6462487CDD60097546B /* MessageTableViewCell.xib */,
-				E165B6502487F6E60097546B /* ChatTableViewCell.xib */,
 				E1B0CA9F2488BBF400688822 /* ContactTableViewCell.xib */,
+				E165B6502487F6E60097546B /* ChatTableViewCell.xib */,
 			);
 			path = cell;
 			sourceTree = "<group>";
@@ -145,10 +146,19 @@
 			isa = PBXGroup;
 			children = (
 				E165B6452487CDD60097546B /* MessageTableViewCell.swift */,
-				E165B64F2487F6E60097546B /* ChatTableViewCell.swift */,
 				E1B0CA9E2488BBF400688822 /* ContactTableViewCell.swift */,
+				E165B64F2487F6E60097546B /* ChatTableViewCell.swift */,
 			);
 			path = cell;
+			sourceTree = "<group>";
+		};
+		E1B0CAA42489560F00688822 /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				E1C89D8624851B1600E6158F /* AppDelegate.swift */,
+				E1C89D8824851B1600E6158F /* SceneDelegate.swift */,
+			);
+			path = Delegate;
 			sourceTree = "<group>";
 		};
 		E1C89D7A24851B1600E6158F = {
@@ -172,13 +182,11 @@
 		E1C89D8524851B1600E6158F /* dannymessenger */ = {
 			isa = PBXGroup;
 			children = (
+				E1B0CAA42489560F00688822 /* Delegate */,
 				E165B636248674B50097546B /* View */,
-				E165B631248583480097546B /* Controller */,
 				E165B630248583420097546B /* Model */,
-				E1C89D8624851B1600E6158F /* AppDelegate.swift */,
-				E1C89D8824851B1600E6158F /* SceneDelegate.swift */,
+				E165B631248583480097546B /* Controller */,
 				E1C89D8F24851B1700E6158F /* Assets.xcassets */,
-				E1C89D9124851B1700E6158F /* LaunchScreen.storyboard */,
 				E1C89D9424851B1700E6158F /* Info.plist */,
 				E1C89D9A2485658700E6158F /* GoogleService-Info.plist */,
 			);

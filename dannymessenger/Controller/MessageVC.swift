@@ -11,6 +11,7 @@ import Firebase
 import FirebaseDatabase
 import SwiftKeychainWrapper
 
+
 class MessageVC: UIViewController {
 
     
@@ -28,6 +29,9 @@ class MessageVC: UIViewController {
         messageTableView.delegate = self
         messageTableView.dataSource = self
         
+        self.navigationController?.navigationBar.topItem?.title = "Messages"
+        
+        //mengambil data dalam firebase database menggunakan observe diakhirnya
         Database.database().reference().child("users").child(currentUser!).child("messages").observe(.value, with: {
             snapshot in
             
@@ -36,9 +40,10 @@ class MessageVC: UIViewController {
                 //handle duplicated data that comes
                 self.messageDetail.removeAll()
                 
+                //ngeassign data yang didapet ke class dan array
                 for data in snapshot{
                     if let messageDict = data.value as? Dictionary<String, AnyObject> {
-                        let key = data.key
+                        let key = data.key //key ada uidnya difirebase
                         let info = MessageDetail(messageKey: key, messageData: messageDict)
                         
                         self.messageDetail.append(info)
@@ -54,17 +59,34 @@ class MessageVC: UIViewController {
 
 
     @IBAction func signOut(_ sender: Any) {
-        try! Auth.auth().signOut()
+        do {
+            
+            //jika user logout
+            try Auth.auth().signOut()
+            KeychainWrapper.standard.removeObject(forKey: "uid")
+                    
+            //membuat rootviewcontroller baru
+            let onboardingViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "welcome")
+            let navigationController = UINavigationController()
+            navigationController.viewControllers = [onboardingViewController]
+            view.window?.rootViewController = navigationController
+            view.window?.makeKeyAndVisible()
+            
+            self.view.window?.rootViewController?.dismiss(animated: true, completion: nil)
+            
+            
+        } catch {
+            print("already logged out")
+            
+        }
         
-        KeychainWrapper.standard.removeObject(forKey: "uid")
         
-        dismiss(animated: true, completion: nil)
     }
     
     @IBAction func addMessage(_ sender: Any) {
         let destination = ContactVC(nibName: "ContactVC", bundle: nil)
         
-        self.present(destination, animated: true)
+        self.navigationController?.pushViewController(destination, animated: true)
     }
     
 }
@@ -77,7 +99,7 @@ extension MessageVC: UITableViewDelegate {
         destination.recipient = messageDetail[indexPath.row].recipient
         destination.messageId = messageDetail[indexPath.row].messageRef.key
         
-        self.present(destination, animated: true)
+        self.navigationController?.pushViewController(destination, animated: true)
         
     }
     

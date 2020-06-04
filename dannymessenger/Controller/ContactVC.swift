@@ -30,7 +30,10 @@ class ContactVC: UIViewController, UISearchBarDelegate {
         searchBar.delegate = self
         searchBar.returnKeyType = UIReturnKeyType.done
         
+        self.navigationController?.navigationBar.topItem?.title = "Contacts"
+        
         loadData()
+        
         
         
         
@@ -104,7 +107,11 @@ extension ContactVC: UITableViewDelegate {
         destination.recipient = recipient
         destination.messageId = messageId
         
-        self.present(destination, animated: true)
+        self.navigationController?.pushViewController(destination, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
     }
     
 }

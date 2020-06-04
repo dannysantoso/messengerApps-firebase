@@ -17,7 +17,7 @@ class Chat{
     private var _messageKey:String!
     private var _messageRef:DatabaseReference!
     
-    var currentUser = KeychainWrapper.standard.string(forKey: "uid ")
+    var currentUser = KeychainWrapper.standard.string(forKey: "uid")
     
     var chat: String{
         return _chat
@@ -37,6 +37,7 @@ class Chat{
         _sender = sender
     }
     
+    //["sender", data] / ["messages", data]
     init(messageKey: String, postData: Dictionary<String, AnyObject>) {
         
         _messageKey = messageKey

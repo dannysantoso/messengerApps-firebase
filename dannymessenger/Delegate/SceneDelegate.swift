@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseDatabase
+import SwiftKeychainWrapper
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -17,7 +20,28 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        guard let _ = (scene as? UIWindowScene) else { return }
+        guard let windowScene = (scene as? UIWindowScene) else { return }
+        window = UIWindow(windowScene: windowScene)
+        
+        
+        //ngecheck apakah uid user masih ada di keychainwrapper kalo gk ada rootnya ke main storyboard, kalo ada rootnya ke message
+        
+        if KeychainWrapper.standard.string(forKey: "uid") != nil {
+            
+            let destination = MessageVC(nibName: "MessageVC", bundle: nil)
+            let navigationController = UINavigationController()
+            navigationController.viewControllers = [destination]
+            self.window!.rootViewController = navigationController
+            self.window?.makeKeyAndVisible()
+        }else {
+            
+            let onboardingViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "welcome")
+            let navigationController = UINavigationController()
+            navigationController.viewControllers = [onboardingViewController]
+            self.window!.rootViewController = navigationController
+            window?.makeKeyAndVisible()
+            
+        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

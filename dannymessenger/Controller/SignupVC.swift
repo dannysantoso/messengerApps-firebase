@@ -18,10 +18,11 @@ class SignupVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
     @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var tfUsername: UITextField!
     @IBOutlet weak var signUpButton: UIButton!
+    @IBOutlet weak var tfEmail: UITextField!
+    @IBOutlet weak var tfPassword: UITextField!
+    
     
     var userUid:String!
-    var emailField:String!
-    var passwordField:String!
     var imagePicker:UIImagePickerController!
     var imageSelected = false
     var username:String!
@@ -35,16 +36,9 @@ class SignupVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
         
     }
 
+
     
-    override func viewDidDisappear(_ animated: Bool) {
-        
-        if let _ = KeychainWrapper.standard.string(forKey: "uid") {
-            let destination = MessageVC(nibName: "MessageVC", bundle: nil)
-            
-            self.present(destination, animated: true)
-        }
-    }
-    
+    //ngedisplay image picker untuk memilih gambar dari library, photo
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
         if let image = info[.editedImage] as? UIImage {
@@ -61,33 +55,49 @@ class SignupVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
         imagePicker.dismiss(animated: true, completion: nil)
     }
     
+    
+    //menyimpan data ke dalam firebase database
     func setUser(img: String){
         let userData = [
             "username": username!,
             "userImg": img
         ]
         
+        //menyimpan id ke keychainwrapper = ini mirip dengan user default
         KeychainWrapper.standard.set(userUid, forKey: "uid")
         
+        
+        //menyimpan datanya ke firebase database
         let location = Database.database().reference().child("users").child(userUid)
         
         location.setValue(userData)
         
-        dismiss(animated: true, completion: nil)
+        
+        //membuat rootviewcontroller baru ke message view controller
+        let destination = MessageVC(nibName: "MessageVC", bundle: nil)
+        
+        let navigationController = UINavigationController()
+        navigationController.viewControllers = [destination]
+        self.view.window?.rootViewController = navigationController
+        self.view.window?.makeKeyAndVisible()
+        
+        self.view.window?.rootViewController?.dismiss(animated: true, completion: nil)
         
     }
     
+
+    //upload image ke firebase storage
     func uploadImage(){
-        if tfUsername.text == nil {
-            signUpButton.isEnabled = false
-        }else{
-            username = tfUsername.text
-            signUpButton.isEnabled = true
-        }
+
+        username = tfUsername.text
+
         guard let image = userImage.image, imageSelected == true else{
             print("Image must be selected")
             return
         }
+        
+        
+        //menyimpan gambar ke dalam firebase storage
         
         if let imageData = image.jpegData(compressionQuality: 0.2){
             let imgUid = NSUUID().uuidString
@@ -120,25 +130,36 @@ class SignupVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
     }
     
     @IBAction func createAccount(_ sender: Any){
-        Auth.auth().createUser(withEmail: emailField, password: passwordField, completion: { (user, error) in
-            if error != nil {
-                print("Can't Create User")
-            }else{
-                if let user = user {
-                    self.userUid = user.user.uid
+        
+        //membuat akun pada firebase authentication
+        if tfEmail != nil && tfPassword != nil && tfUsername != nil && imageSelected == true {
+            Auth.auth().createUser(withEmail: tfEmail.text!, password: tfPassword.text!, completion: { (user, error) in
+                if error != nil {
+                    print(error)
+                }else{
+                    if let user = user {
+                        self.userUid = user.user.uid
+                    }
+                    self.uploadImage()
                 }
-            }
+                
+                
+            })
+        }else{
+            print("please fill all the form")
+            let alert = UIAlertController(title: nil, message: "please fill all the form", preferredStyle: .alert)
             
-            self.uploadImage()
-        })
+            alert.addAction(UIAlertAction(title: "Done", style: .cancel, handler: nil))
+            
+            self.present(alert, animated: true, completion: nil)
+        }
     }
-
+    
+    
+    //menampilkan imagepicker
     @IBAction func selectedImagePicker(_ sender: Any){
         present(imagePicker, animated: true, completion: nil)
     }
     
-    @IBAction func cancel(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
-    }
-    
+
 }
