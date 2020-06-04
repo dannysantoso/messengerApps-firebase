@@ -29,9 +29,12 @@
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <state key="normal" title="Log Out"/>
                                 </button>
+                                <connections>
+                                    <action selector="signOut:" destination="-1" id="kO7-uv-t1j"/>
+                                </connections>
                             </barButtonItem>
                             <barButtonItem key="rightBarButtonItem" style="plain" id="o8K-q2-WVI">
-                                <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="uTx-Bk-Qc9">
+                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="uTx-Bk-Qc9">
                                     <rect key="frame" x="266" y="0.0" width="128" height="44"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <state key="normal" image="plus" catalog="system"/>

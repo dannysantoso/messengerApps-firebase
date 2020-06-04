@@ -21,9 +21,9 @@ class LoginVC: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         if let _ = KeychainWrapper.standard.string(forKey: "uid"){
-            let destination = MessageVC(nibName: "ChatVC", bundle: nil)
+            let destination = MessageVC(nibName: "MessageVC", bundle: nil)
             
-            self.navigationController?.pushViewController(destination, animated: true)
+            self.present(destination, animated: true)
         }
     }
     
@@ -42,9 +42,9 @@ class LoginVC: UIViewController {
                     self.userUid = user?.user.uid
                     KeychainWrapper.standard.set(self.userUid, forKey: "uid")
                     
-                    let destination = MessageVC(nibName: "ChatVC", bundle: nil)
+                    let destination = MessageVC(nibName: "MessageVC", bundle: nil)
                     
-                    self.navigationController?.pushViewController(destination, animated: true)
+                    self.present(destination, animated: true)
                     
                 }else{
                     let destination = SignupVC(nibName: "SignupVC", bundle: nil)

@@ -15,6 +15,11 @@
 		E165B6442487CAC20097546B /* MessageDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = E165B6432487CAC20097546B /* MessageDetail.swift */; };
 		E165B6472487CDD60097546B /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E165B6452487CDD60097546B /* MessageTableViewCell.swift */; };
 		E165B6482487CDD60097546B /* MessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E165B6462487CDD60097546B /* MessageTableViewCell.xib */; };
+		E165B64D2487E63E0097546B /* ChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E165B64B2487E63E0097546B /* ChatVC.swift */; };
+		E165B64E2487E63E0097546B /* ChatVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = E165B64C2487E63E0097546B /* ChatVC.xib */; };
+		E165B6512487F6E60097546B /* ChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E165B64F2487F6E60097546B /* ChatTableViewCell.swift */; };
+		E165B6522487F6E60097546B /* ChatTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E165B6502487F6E60097546B /* ChatTableViewCell.xib */; };
+		E1B0CA992488361C00688822 /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B0CA982488361C00688822 /* Chat.swift */; };
 		E1C89D8724851B1600E6158F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C89D8624851B1600E6158F /* AppDelegate.swift */; };
 		E1C89D8924851B1600E6158F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C89D8824851B1600E6158F /* SceneDelegate.swift */; };
 		E1C89D8B24851B1600E6158F /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C89D8A24851B1600E6158F /* LoginVC.swift */; };
@@ -35,6 +40,11 @@
 		E165B6432487CAC20097546B /* MessageDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageDetail.swift; sourceTree = "<group>"; };
 		E165B6452487CDD60097546B /* MessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
 		E165B6462487CDD60097546B /* MessageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageTableViewCell.xib; sourceTree = "<group>"; };
+		E165B64B2487E63E0097546B /* ChatVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatVC.swift; sourceTree = "<group>"; };
+		E165B64C2487E63E0097546B /* ChatVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatVC.xib; sourceTree = "<group>"; };
+		E165B64F2487F6E60097546B /* ChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTableViewCell.swift; sourceTree = "<group>"; };
+		E165B6502487F6E60097546B /* ChatTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatTableViewCell.xib; sourceTree = "<group>"; };
+		E1B0CA982488361C00688822 /* Chat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
 		E1C89D8324851B1600E6158F /* dannymessenger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dannymessenger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1C89D8624851B1600E6158F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E1C89D8824851B1600E6158F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -79,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				E165B6432487CAC20097546B /* MessageDetail.swift */,
+				E1B0CA982488361C00688822 /* Chat.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -87,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				E165B64A2487DD480097546B /* cell */,
+				E165B64B2487E63E0097546B /* ChatVC.swift */,
 				E1C89D8A24851B1600E6158F /* LoginVC.swift */,
 				E165B63224866F730097546B /* MessageVC.swift */,
 				E165B637248675060097546B /* SignupVC.swift */,
@@ -101,6 +113,7 @@
 				E165B63324866F730097546B /* MessageVC.xib */,
 				E165B638248675060097546B /* SignupVC.xib */,
 				E1C89D8C24851B1600E6158F /* Main.storyboard */,
+				E165B64C2487E63E0097546B /* ChatVC.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -109,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				E165B6462487CDD60097546B /* MessageTableViewCell.xib */,
+				E165B6502487F6E60097546B /* ChatTableViewCell.xib */,
 			);
 			path = cell;
 			sourceTree = "<group>";
@@ -117,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				E165B6452487CDD60097546B /* MessageTableViewCell.swift */,
+				E165B64F2487F6E60097546B /* ChatTableViewCell.swift */,
 			);
 			path = cell;
 			sourceTree = "<group>";
@@ -216,9 +231,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				E1C89D9324851B1700E6158F /* LaunchScreen.storyboard in Resources */,
+				E165B6522487F6E60097546B /* ChatTableViewCell.xib in Resources */,
 				E1C89D9B2485658700E6158F /* GoogleService-Info.plist in Resources */,
 				E1C89D9024851B1700E6158F /* Assets.xcassets in Resources */,
 				E165B63524866F730097546B /* MessageVC.xib in Resources */,
+				E165B64E2487E63E0097546B /* ChatVC.xib in Resources */,
 				E165B63A248675060097546B /* SignupVC.xib in Resources */,
 				E165B6482487CDD60097546B /* MessageTableViewCell.xib in Resources */,
 				E1C89D8E24851B1600E6158F /* Main.storyboard in Resources */,
@@ -274,8 +291,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E165B64D2487E63E0097546B /* ChatVC.swift in Sources */,
 				E165B6472487CDD60097546B /* MessageTableViewCell.swift in Sources */,
 				E165B63424866F730097546B /* MessageVC.swift in Sources */,
+				E1B0CA992488361C00688822 /* Chat.swift in Sources */,
+				E165B6512487F6E60097546B /* ChatTableViewCell.swift in Sources */,
 				E165B639248675060097546B /* SignupVC.swift in Sources */,
 				E1C89D8B24851B1600E6158F /* LoginVC.swift in Sources */,
 				E1C89D8724851B1600E6158F /* AppDelegate.swift in Sources */,

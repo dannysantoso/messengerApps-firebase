@@ -39,9 +39,9 @@ class SignupVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
     override func viewDidDisappear(_ animated: Bool) {
         
         if let _ = KeychainWrapper.standard.string(forKey: "uid") {
-            let destination = MessageVC(nibName: "ChatVC", bundle: nil)
+            let destination = MessageVC(nibName: "MessageVC", bundle: nil)
             
-            self.navigationController?.pushViewController(destination, animated: true)
+            self.present(destination, animated: true)
         }
     }
     
