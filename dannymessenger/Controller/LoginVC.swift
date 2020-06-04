@@ -21,6 +21,8 @@ class LoginVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        returnKeyboard()
+        dismissKeyboard()
     
     }
 
@@ -66,5 +68,31 @@ class LoginVC: UIViewController {
                             
         self.navigationController?.pushViewController(destination, animated: true)
     }
+    
+    //ketika return diketik close keypad, fungsi lainnya ada diextension
+    func returnKeyboard(){
+        tfEmail.delegate = self
+        tfPassword.delegate = self
+    }
+    
+    //ketika view ditap close keypad
+    func dismissKeyboard(){
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap))
+        view.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc func handleTap(){
+        self.view.endEditing(true)
+    }
 }
 
+
+
+extension UIViewController: UITextFieldDelegate {
+    
+    public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+}

@@ -34,6 +34,9 @@ class SignupVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
         imagePicker.delegate = self
         imagePicker.allowsEditing = true
         
+        returnKeyboard()
+        dismissKeyboard()
+        
     }
 
 
@@ -159,6 +162,24 @@ class SignupVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
     //menampilkan imagepicker
     @IBAction func selectedImagePicker(_ sender: Any){
         present(imagePicker, animated: true, completion: nil)
+    }
+    
+    
+    //ketika return diketik close keypad, fungsi lainnya ada diextension
+    func returnKeyboard(){
+        tfEmail.delegate = self
+        tfPassword.delegate = self
+        tfUsername.delegate = self
+    }
+    
+    //ketika view ditap close keypad
+    func dismissKeyboard(){
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap))
+        view.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc func handleTap(){
+        self.view.endEditing(true)
     }
     
 

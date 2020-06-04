@@ -11,11 +11,12 @@ import Firebase
 import FirebaseDatabase
 import SwiftKeychainWrapper
 
-class ChatVC: UIViewController, UITextFieldDelegate {
+class ChatVC: UIViewController {
     
     @IBOutlet weak var sendButton: UIButton!
     @IBOutlet weak var tfMessage: UITextField!
     @IBOutlet weak var chatTableView: UITableView!
+    
     
     var recipient: String!
     var messageId: String!
@@ -28,6 +29,9 @@ class ChatVC: UIViewController, UITextFieldDelegate {
 
         chatTableView.delegate = self
         chatTableView.dataSource = self
+        
+        returnKeyboard()
+        
 
         
         self.navigationController?.navigationBar.topItem?.title = recipient
@@ -73,6 +77,7 @@ class ChatVC: UIViewController, UITextFieldDelegate {
     }
     
     @objc func dismissKeyboard(){
+        self.view.frame.origin.y = 0
         view.endEditing(true)
     }
     
@@ -202,6 +207,11 @@ class ChatVC: UIViewController, UITextFieldDelegate {
         moveToBottom()
     }
     
+    
+    //ketika return diketik close keypad, fungsi lainnya ada diextension
+    func returnKeyboard(){
+        self.view.frame.origin.y = 0
+    }
     
 }
 
