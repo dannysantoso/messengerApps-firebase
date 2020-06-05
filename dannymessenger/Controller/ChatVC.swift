@@ -31,6 +31,7 @@ class ChatVC: UIViewController {
         chatTableView.dataSource = self
         
         returnKeyboard()
+        dismissKeyboard()
         
 
         
@@ -40,13 +41,10 @@ class ChatVC: UIViewController {
             loadData()
         }
         
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(ChatVC.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
-        
-        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
-        
-        view.addGestureRecognizer(tap)
+            // call the 'keyboardWillHide' function when the view controlelr receive notification that keyboard is going to be hidden
+        NotificationCenter.default.addObserver(self, selector: #selector(ChatVC.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         
         DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(300)) {
             
@@ -56,29 +54,39 @@ class ChatVC: UIViewController {
         chatTableView.register(UINib(nibName: "ChatTableViewCell", bundle: nil), forCellReuseIdentifier: "chatCell")
     }
     
-    @objc func keyboardWillShow(notify: NSNotification){
-        if let keyboardSize = (notify.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
             
-            if self.view.frame.origin.y == 0 {
-                
-                self.view.frame.origin.y -= keyboardSize.height
-            }
+        guard let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {
+           // if keyboard size is not available for some reason, dont do anything
+           return
         }
+      
+      // move the root view up by the distance of keyboard height
+      self.view.frame.origin.y = 0 - keyboardSize.height
+    }
+
+    @objc func keyboardWillHide(notification: NSNotification) {
+      // move back the root view origin to zero
+      self.view.frame.origin.y = 0
+    }
+
+    func dismissKeyboard(){
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap))
+        view.addGestureRecognizer(tapGesture)
     }
     
-    @objc func keyboardWillHide(notify: NSNotification){
-        if let keyboardSize = (notify.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-            
-            if self.view.frame.origin.y != 0 {
-                
-                self.view.frame.origin.y += keyboardSize.height
-            }
-        }
+    @objc func handleTap(){
+        self.view.endEditing(true)
     }
     
-    @objc func dismissKeyboard(){
-        self.view.frame.origin.y = 0
-        view.endEditing(true)
+    
+    
+    //ketika return diketik close keypad, fungsi lainnya ada diextension
+    func returnKeyboard(){
+//        self.view.frame.origin.y = 0
+        tfMessage.delegate = self
     }
     
     @IBAction func back(_ sender: Any) {
@@ -205,12 +213,6 @@ class ChatVC: UIViewController {
         }
         
         moveToBottom()
-    }
-    
-    
-    //ketika return diketik close keypad, fungsi lainnya ada diextension
-    func returnKeyboard(){
-        self.view.frame.origin.y = 0
     }
     
 }
