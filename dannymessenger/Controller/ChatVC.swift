@@ -130,7 +130,7 @@ class ChatVC: UIViewController {
     
     @IBAction func send(_ sender: Any) {
         
-        dismissKeyboard()
+        self.view.endEditing(true)
         
         if tfMessage.text != nil && tfMessage.text != "" {
             if messageId == nil {
