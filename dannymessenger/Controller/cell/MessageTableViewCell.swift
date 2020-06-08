@@ -37,6 +37,7 @@ class MessageTableViewCell: UITableViewCell {
     func configureCell(messageDetail: MessageDetail) {
         
         self.messageDetail = messageDetail
+        self.messagePreview.text = messageDetail.lastmessage
         
         let recipientData = Database.database().reference().child("users").child(messageDetail.recipient)
         

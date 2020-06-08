@@ -133,7 +133,7 @@ class ChatVC: UIViewController {
         self.view.endEditing(true)
         
         if tfMessage.text != nil && tfMessage.text != "" {
-            if messageId == nil {
+            if messageId == nil || messageId == "" {
                 
                 let post: Dictionary<String, AnyObject> = [
                     "messages": tfMessage.text as AnyObject,

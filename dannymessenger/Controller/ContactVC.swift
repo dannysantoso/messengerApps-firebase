@@ -21,6 +21,7 @@ class ContactVC: UIViewController, UISearchBarDelegate {
     var contact: Contact!
     var recipient: String!
     var messageId: String!
+    var currentUser = KeychainWrapper.standard.string(forKey: "uid")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +43,7 @@ class ContactVC: UIViewController, UISearchBarDelegate {
     }
     
     func loadData(){
+        
         Database.database().reference().child("users").observe(.value, with: {
             snapshot in
             if let snapshot = snapshot.children.allObjects as? [DataSnapshot] {
@@ -53,16 +55,44 @@ class ContactVC: UIViewController, UISearchBarDelegate {
                         if let postDict = data.value as? Dictionary<String, AnyObject> {
                             
                             let key = data.key
+                            print(key)
                             
-                            let post = Contact(userKey: key, postData: postDict)
+                            if let username = postDict["username"] as? String {
+                                
+                                print(username)
+                            }
                             
+                            
+                            Database.database().reference().child("users").child(key).child("messages").observe(.value, with: {
+                                snapshot2 in
+                                    if let snapshot2 = snapshot2.children.allObjects as? [DataSnapshot] {
+                                        for (index,data2) in snapshot2.enumerated(){
+                                            if let postDict2 = data2.value as? Dictionary<String, AnyObject> {
+                                                if let recipient = postDict2["recipient"] as? String {
+                                                    if recipient == self.currentUser! {
+                                                        self.contacts[index]._messageId = data2.key
+                                                    }
+                                                        
+                                                }
+                                            }
+                                        }
+                                    }
+                                        
+                                })
+                            
+                            let post = Contact(userKey: key, postData: postDict, messageId: "")
+
                             self.contacts.append(post)
+                            
+                            
                         }
                     }
                 }
                 
                 self.contactTableView.reloadData()
         })
+        
+        
     }
 
     
@@ -98,8 +128,10 @@ extension ContactVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if isSearching {
             recipient = filteredData[indexPath.row].userKey
+            messageId = filteredData[indexPath.row].messageId
         }else{
             recipient = contacts[indexPath.row].userKey
+            messageId = contacts[indexPath.row].messageId
         }
         
         let destination = ChatVC(nibName: "ChatVC", bundle: nil)
