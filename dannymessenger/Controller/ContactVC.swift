@@ -63,24 +63,7 @@ class ContactVC: UIViewController, UISearchBarDelegate {
                             }
                             
                             
-                            Database.database().reference().child("users").child(key).child("messages").observe(.value, with: {
-                                snapshot2 in
-                                    if let snapshot2 = snapshot2.children.allObjects as? [DataSnapshot] {
-                                        for (index,data2) in snapshot2.enumerated(){
-                                            if let postDict2 = data2.value as? Dictionary<String, AnyObject> {
-                                                if let recipient = postDict2["recipient"] as? String {
-                                                    if recipient == self.currentUser! {
-                                                        self.contacts[index]._messageId = data2.key
-                                                    }
-                                                        
-                                                }
-                                            }
-                                        }
-                                    }
-                                        
-                                })
-                            
-                            let post = Contact(userKey: key, postData: postDict, messageId: "")
+                            let post = Contact(userKey: key, postData: postDict)
 
                             self.contacts.append(post)
                             
@@ -128,10 +111,8 @@ extension ContactVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if isSearching {
             recipient = filteredData[indexPath.row].userKey
-            messageId = filteredData[indexPath.row].messageId
         }else{
             recipient = contacts[indexPath.row].userKey
-            messageId = contacts[indexPath.row].messageId
         }
         
         let destination = ChatVC(nibName: "ChatVC", bundle: nil)
